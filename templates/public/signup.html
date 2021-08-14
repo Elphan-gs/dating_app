@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% extends 'layout/layout.html' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                <div class="signup__form__container">
+                    <div class="signup__title__container">
+                        <h1 class="signup__title">Sign Up</h1>
+                        <p>Fill up the form now.</p>
+                        {% if error_message %}
+                            <p class="text-danger">{{ error_message }}</p>
+                        {% endif %}
+                    </div>
+                    <form class="signup__form" action="{% url 'public:signup' %}" method="POST">
+                        {% csrf_token %}
+                        {#                        <div class="mb-3">#}
+                        {#                            <label for="{{ form.firstname.id_for_label }}" class="form-label">First Name</label>#}
+                        {#                            {{ form.firstname }}#}
+                        {#                            <input type="text" class="form-control" id="firstname" placeholder="Enter first name">#}
+                        {#                        </div>#}
+                        {#                        <div class="mb-3">#}
+                        {#                            <label for="{{ form.lastname.id_for_label }}" class="form-label">Last Name</label>#}
+                        {#                            {{ form.lastname }}#}
+                        {#                            <input type="text" class="form-control" id="lastname" placeholder="Enter last name">#}
+                        {#                        </div>#}
+                        {#                        <div class="mb-3">#}
+                        {#                            <label for="{{ form.age.id_for_label }}" class="form-label">Age</label>#}
+                        {#                            {{ form.age }}#}
+                        {#                        </div>#}
+                        {#                        <div class="mb-3">#}
+                        {#                            <label for="{{ form.username.id_for_label }}" class="form-label">Username</label>#}
+                        {#                            {{ form.username }}#}
+                        {#                        </div>#}
+                        <div class="mb-3">
+                            <label for="{{ form.email.id_for_label }}" class="form-label">Email</label>
+                            {{ form.email }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="{{ form.password.id_for_label }}" class="form-label">Password</label>
+                            {{ form.password }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="{{ form.confirm_password.id_for_label }}" class="form-label">Confirm
+                                Password</label>
+                            {{ form.confirm_password }}
+                        </div>
+                        <input type="submit" class="btn btn-primary signup__signup__button" value="Sign Up">
+                        <a class="btn btn-secondary signup__back__button" href="{% url 'public:index' %}">Back</a>
+                    </form>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="signup__image"></div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

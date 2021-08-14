@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% extends 'layout/layout.html' %}
+{% load static %}
+
+{% block head_nav %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid nav__container">
+            <a class="navbar-brand" href="{% url 'public:index' %}">
+                <img src="{% static 'assets/images/300-alpha.png' %}" alt="Bump-logo" width="30" height="24"
+                     class="d-inline-block align-text-top">
+                Bump
+            </a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'public:index' %}">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'public:about' %}">ABOUT US</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'public:contact' %}">CONTACT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'public:download' %}">DOWNLOAD NOW</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block body %}
+    <div class="home__image__container">
+        <img class="home__image" src="{% static 'assets/images/Texting-pana.png' %}" alt="Bump-Home-Image">
+    </div>
+    <div class="home__title__container">
+        <h1 class="home__title">Lorem ipsum dolor</h1>
+        <p>Sed condimentum dolor vitae malesuada bibendum. Quisque aliquet ut lorem non iaculis.</p>
+        <p><a class="home__login__button btn btn-primary" href="{% url 'public:login' %}">Login</a></p>
+        <p><a class="home__signup__button btn btn-secondary" href="{% url 'public:signup' %}">Sign Up</a></p>
+    </div>
+{% endblock %}
